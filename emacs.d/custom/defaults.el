@@ -25,8 +25,8 @@
 
 (global-set-key (kbd "C-x o") 'switch-window)
 
-(define-key global-map (kbd "RET") 'reindent-then-newline-and-indent)
-;; (add-hook 'enh-ruby-mode (lambda () (electric-indent-mode 1)))
+(define-key global-map (kbd "RET") 'newline-and-indent)
+(add-hook 'yaml-mode (lambda () (electric-indent-mode -1)))
 
 ;; move to newly-created split
 (global-set-key "\C-x2" (lambda ()
