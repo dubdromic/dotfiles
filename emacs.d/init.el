@@ -9,6 +9,7 @@
 (require 'misc)
 
 (load "defaults.el")
+(load "syntax-table.el")
 (load "auto-complete-defaults.el")
 (load "projectile-defaults.el")
 (load "ace-jump-mode.el")
