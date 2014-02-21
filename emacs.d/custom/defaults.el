@@ -27,6 +27,7 @@
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (add-hook 'yaml-mode (lambda () (electric-indent-mode -1)))
+(add-hook 'enh-ruby-mode-hook 'flycheck-mode)
 
 ;; move to newly-created split
 (global-set-key "\C-x2" (lambda ()
