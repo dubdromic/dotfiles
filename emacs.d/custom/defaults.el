@@ -23,9 +23,20 @@
 (global-set-key (kbd "M-f") 'forward-to-word)
 (global-set-key (kbd "C-x o") 'switch-window)
 
-(define-key global-map (kbd "RET") 'newline-and-indent)
+;;(define-key global-map (kbd "RET") 'newline-and-indent)
+
+;; enh-ruby-mode doesn't do erb highlighting as well
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . rainbow-mode))
+
+;; electric indent doesn't get along with some modes
+(add-hook 'sass-mode (lambda () (electric-indent-mode -1)))
 (add-hook 'yaml-mode (lambda () (electric-indent-mode -1)))
+
+;; debugging ftw
 (add-hook 'enh-ruby-mode-hook 'flycheck-mode)
+(add-hook 'enh-ruby-mode-hook 'robe-mode)
 
 ;; move to newly-created split
 (global-set-key "\C-x2" (lambda ()
