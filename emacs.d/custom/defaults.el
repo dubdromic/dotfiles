@@ -12,6 +12,8 @@
 (display-time-mode 0)
 (show-paren-mode t)
 
+(setq uniquify-buffer-name-style 'reverse)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq-default indent-tabs-mode nil)
@@ -19,10 +21,6 @@
 
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-f") 'forward-to-word)
-(global-set-key [f2] 'comment-region)
-(global-set-key [f3] 'uncomment-region)
-(global-set-key [f5] 'indent-region)
-
 (global-set-key (kbd "C-x o") 'switch-window)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)

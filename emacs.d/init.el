@@ -7,9 +7,10 @@
 (require 'pallet)
 (require 'ruby-end)
 (require 'misc)
+(require 'uniquify)
 
 (load "defaults.el")
-(load "syntax-table.el")
+(load "coffee-mode-defaults.el")
 (load "auto-complete-defaults.el")
 (load "projectile-defaults.el")
 (load "ace-jump-mode.el")
