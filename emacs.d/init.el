@@ -11,7 +11,6 @@
 
 (load "defaults.el")
 (load "coffee-mode-defaults.el")
-(load "auto-complete-defaults.el")
 (load "projectile-defaults.el")
 (load "ace-jump-mode.el")
 (load "go-to-char-defaults.el")

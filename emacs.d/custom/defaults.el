@@ -22,8 +22,12 @@
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-f") 'forward-to-word)
 (global-set-key (kbd "C-x o") 'switch-window)
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
 
-;;(define-key global-map (kbd "RET") 'newline-and-indent)
+(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ;; enh-ruby-mode doesn't do erb highlighting as well
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . ruby-mode))
