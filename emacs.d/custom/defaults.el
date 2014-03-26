@@ -16,9 +16,6 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq-default indent-tabs-mode nil)
-(global-visual-line-mode 1)
-
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-f") 'forward-to-word)
 (global-set-key (kbd "C-x o") 'switch-window)
@@ -29,10 +26,9 @@
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-;; enh-ruby-mode doesn't do erb highlighting as well
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . rainbow-mode))
 
 ;; electric indent doesn't get along with some modes
 (add-hook 'sass-mode (lambda () (electric-indent-mode -1)))
@@ -41,6 +37,11 @@
 ;; debugging ftw
 (add-hook 'enh-ruby-mode-hook 'flycheck-mode)
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
+(add-hook 'enh-ruby-mode-hook 'rspec-mode)
+
+(add-hook 'enh-ruby-mode-hook
+          '(lambda ()
+             (setq enh-ruby-deep-indent-paren nil)))
 
 ;; move to newly-created split
 (global-set-key "\C-x2" (lambda ()
@@ -55,3 +56,6 @@
 (defadvice save-buffer (before save-buffer-always activate)
   "always save buffer"
   (set-buffer-modified-p t))
+
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 2)
