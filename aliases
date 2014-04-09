@@ -10,4 +10,3 @@ alias rspec='bundle exec rspec'
 alias gl='tig'
 alias be='bundle exec'
 alias ssh="TERM=xterm ssh"
-alias emacs="emacs -nw -q"

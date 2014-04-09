@@ -2,7 +2,7 @@
         name = Corin Schedler
         email = corin@dubdromic.com
 [core]
-        editor = emacs -nw
+        editor = mg
 [color]
         diff = auto
         status = auto

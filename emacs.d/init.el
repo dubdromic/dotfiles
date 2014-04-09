@@ -15,8 +15,10 @@
 (load "ace-jump-mode.el")
 (load "go-to-char-defaults.el")
 (load "ido-defaults.el")
+(load "org-mode-defaults.el")
 (load "tramp-defaults.el")
 (load "syntax-table.el")
+(load "helm-defaults.el")
 
 ;; robe-mode needs rbenv goodness
 (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "HOME") "/Bin:" (getenv "PATH")))

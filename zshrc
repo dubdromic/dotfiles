@@ -1,6 +1,6 @@
 zstyle :compinstall filename '/home/corin/.zshrc'
 
-EDITOR=emacs
+EDITOR=mg
 GIT_SSL_NO_VERIFY=1
 HISTFILE=~/.histfile
 HISTSIZE=1000
