@@ -1,6 +1,6 @@
 alias svim='sudo vim'
 alias reload='source ~/.zshrc'
-alias ls='ls -FG1 --color=always'
+alias ls='ls -FG1 --color=always --group-directories-first'
 alias gg='git grep -n'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -10,3 +10,4 @@ alias rspec='bundle exec rspec'
 alias gl='tig'
 alias be='bundle exec'
 alias ssh="TERM=xterm ssh"
+alias killrails="kill -9 `ps aux | grep "rails s" | head -1 | awk '{ print $2; }'`"
