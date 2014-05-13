@@ -1,5 +1,5 @@
 (require 'grizzl)
 (projectile-global-mode)
-(setq projectile-enable-caching t)
+(setq projectile-enable-caching nil)
 (setq projectile-indexing-method 'git)
 (setq projectile-completion-system 'grizzl)
