@@ -28,10 +28,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 
 ;; electric indent doesn't get along with some modes
-(add-hook 'sass-mode (lambda () (electric-indent-mode -1)))
 (add-hook 'yaml-mode (lambda () (electric-indent-mode -1)))
 
 ;; debugging ftw
@@ -59,3 +58,12 @@
 
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 2)
+
+;; automatically wrap isearch
+(defadvice isearch-repeat (after isearch-no-fail activate)
+  (unless isearch-success
+    (ad-disable-advice 'isearch-repeat 'after 'isearch-no-fail)
+    (ad-activate 'isearch-repeat)
+    (isearch-repeat (if isearch-forward 'forward))
+    (ad-enable-advice 'isearch-repeat 'after 'isearch-no-fail)
+    (ad-activate 'isearch-repeat)))
