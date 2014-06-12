@@ -3,8 +3,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 
-(setq gc-cons-threshold 20000000)
-
 (require 'tomorrow-day-theme)
 (require 'pallet)
 (require 'ruby-end)
@@ -33,14 +31,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(css-indent-offset 2)
  '(org-agenda-files (quote ("~/Org/RT")))
  '(rspec-key-command-prefix (kbd "M-s"))
  '(rspec-use-zeus-when-possible t)
  '(safe-local-variable-values (quote ((buffer-file-coding-system . utf-8)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
