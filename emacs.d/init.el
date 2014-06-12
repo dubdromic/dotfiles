@@ -12,6 +12,7 @@
 (require 'uniquify)
 
 (load "defaults.el")
+(load "ag-defaults.el")
 (load "coffee-mode-defaults.el")
 (load "projectile-defaults.el")
 (load "ace-jump-mode.el")
@@ -35,7 +36,8 @@
  '(css-indent-offset 2)
  '(org-agenda-files (quote ("~/Org/RT")))
  '(rspec-key-command-prefix (kbd "M-s"))
- '(rspec-use-zeus-when-possible t))
+ '(rspec-use-zeus-when-possible t)
+ '(safe-local-variable-values (quote ((buffer-file-coding-system . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
