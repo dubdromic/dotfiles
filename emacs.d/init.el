@@ -3,7 +3,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 
-(require 'tomorrow-day-theme)
+(require 'tomorrow-night-theme)
 (require 'pallet)
 (require 'ruby-end)
 (require 'misc)
