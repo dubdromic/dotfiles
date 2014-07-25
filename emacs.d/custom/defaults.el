@@ -11,6 +11,11 @@
 (scroll-bar-mode -1)
 (display-time-mode 0)
 (show-paren-mode t)
+(setq-default indicate-empty-lines t)
+(line-number-mode t)
+(column-number-mode t)
+(delete-selection-mode 1)
+(global-hl-line-mode 1)
 
 (setq uniquify-buffer-name-style 'reverse)
 
@@ -22,12 +27,15 @@
 (flx-ido-mode 1)
 (setq ido-use-faces nil)
 
+(global-set-key (kbd "M-m") 'magit-status)
 (global-set-key (kbd "M-x") 'smex)
 
 (global-set-key (kbd "M-j") 'windmove-down)
 (global-set-key (kbd "M-k") 'windmove-up)
 (global-set-key (kbd "M-h") 'windmove-left)
 (global-set-key (kbd "M-l") 'windmove-right)
+
+(global-set-key (kbd "M-r") 'revert-buffer)
 
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-f") 'forward-to-word)
