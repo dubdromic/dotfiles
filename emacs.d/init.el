@@ -21,7 +21,6 @@
 (load "org-mode-defaults.el")
 (load "tramp-defaults.el")
 (load "syntax-table.el")
-(load "helm-defaults.el")
 (load "erc-defaults.el")
 
 ;; robe-mode needs rbenv goodness
