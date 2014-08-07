@@ -8,6 +8,7 @@
 (require 'ruby-end)
 (require 'misc)
 (require 'uniquify)
+(require 'flx-ido)
 
 (load "defaults.el")
 (load "auto-complete-defaults.el")
