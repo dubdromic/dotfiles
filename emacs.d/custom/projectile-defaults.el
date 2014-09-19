@@ -4,4 +4,4 @@
 (setq projectile-completion-system 'grizzl)
 
 (global-set-key (kbd "C-x t") 'projectile-find-file)
-(global-set-key (kbd "C-x b") 'projectile-recentf)
+(global-set-key (kbd "C-x b") 'projectile-switch-to-buffer)

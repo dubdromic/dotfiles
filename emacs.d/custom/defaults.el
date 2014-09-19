@@ -57,6 +57,8 @@
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'rspec-mode)
 
+(add-hook 'clojure-mode-hook 'paredit-mode)
+
 (add-hook 'enh-ruby-mode-hook
           '(lambda ()
              (setq enh-ruby-deep-indent-paren nil)))
