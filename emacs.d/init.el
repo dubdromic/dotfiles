@@ -10,6 +10,8 @@
 (require 'uniquify)
 (require 'flx-ido)
 
+(global-font-lock-mode 1)
+
 (load "defaults.el")
 (load "auto-complete-defaults.el")
 (load "ag-defaults.el")
@@ -41,6 +43,7 @@
  '(magit-item-highlight-face (quote bold))
  '(org-agenda-files (quote ("~/Org/RT")))
  '(rspec-key-command-prefix (kbd "M-s"))
+ '(rspec-use-rake-when-possible nil)
  '(rspec-use-zeus-when-possible t)
  '(safe-local-variable-values (quote ((buffer-file-coding-system . utf-8)))))
 (custom-set-faces
@@ -48,4 +51,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(enh-ruby-string-delimiter-face ((t nil))))

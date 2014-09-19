@@ -22,11 +22,15 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (ido-mode 1)
+(ido-vertical-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
 
 (global-set-key (kbd "M-m") 'magit-status)
 (global-set-key (kbd "M-x") 'smex)
+
+(global-set-key (kbd "C-x n") 'next-buffer)
+(global-set-key (kbd "C-x p") 'previous-buffer)
 
 (global-set-key (kbd "M-j") 'windmove-down)
 (global-set-key (kbd "M-k") 'windmove-up)
@@ -38,7 +42,7 @@
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-f") 'forward-to-word)
 (global-set-key (kbd "C-x o") 'switch-window)
-(global-set-key (kbd "M-j")
+(global-set-key (kbd "M-S-J")
                 (lambda ()
                   (interactive)
                   (join-line -1)))
