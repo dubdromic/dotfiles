@@ -1,6 +1,6 @@
-(source melpa)
 (source gnu)
 (source marmalade)
+(source melpa)
 
 (depends-on "auto-complete")
 (depends-on "cider")
@@ -29,6 +29,7 @@
 (depends-on "ruby-end")
 (depends-on "sass-mode")
 (depends-on "smex")
+(depends-on "smooth-scrolling")
 (depends-on "switch-window")
 (depends-on "web-mode")
 (depends-on "whitespace-cleanup-mode")

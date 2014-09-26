@@ -9,6 +9,7 @@
 (require 'misc)
 (require 'uniquify)
 (require 'flx-ido)
+(require 'smooth-scrolling)
 
 (global-font-lock-mode 1)
 
@@ -19,10 +20,12 @@
 (load "projectile-defaults.el")
 (load "ace-jump-mode.el")
 (load "go-to-char-defaults.el")
+(load "helm-defaults.el")
 (load "ido-defaults.el")
 (load "org-mode-defaults.el")
 (load "tramp-defaults.el")
 (load "syntax-table.el")
+(load "smooth-scrolling-defaults.el")
 (load "erc-defaults.el")
 
 ;; robe-mode needs rbenv goodness
