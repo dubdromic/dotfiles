@@ -1,7 +1,0 @@
-(require 'enh-ruby-mode)
-(modify-syntax-entry ?\[ "_" enh-ruby-mode-syntax-table)
-(modify-syntax-entry ?\] "_" enh-ruby-mode-syntax-table)
-(modify-syntax-entry ?, "w" enh-ruby-mode-syntax-table)
-(modify-syntax-entry ?\? "w" enh-ruby-mode-syntax-table)
-(modify-syntax-entry ?: "w" enh-ruby-mode-syntax-table)
-(modify-syntax-entry ?_ "w" enh-ruby-mode-syntax-table)

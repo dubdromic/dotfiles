@@ -16,8 +16,11 @@
 (column-number-mode t)
 (delete-selection-mode 1)
 (global-hl-line-mode 1)
+(global-undo-tree-mode)
 
 (setq uniquify-buffer-name-style 'reverse)
+
+(setq scroll-step 1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -50,22 +53,22 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.rake\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . css-mode))
 
 ;; electric indent doesn't get along with some modes
 (add-hook 'yaml-mode (lambda () (electric-indent-mode -1)))
 
 ;; debugging ftw
-(add-hook 'enh-ruby-mode-hook 'flycheck-mode)
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-(add-hook 'enh-ruby-mode-hook 'rspec-mode)
+(add-hook 'ruby-mode-hook 'flycheck-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'ruby-mode-hook 'rspec-mode)
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
-(add-hook 'enh-ruby-mode-hook
-          '(lambda ()
-             (setq enh-ruby-deep-indent-paren nil)))
+;; (add-hook 'enh-ruby-mode-hook
+;;           '(lambda ()
+;;              (setq enh-ruby-deep-indent-paren nil)))
 
 ;; move to newly-created split
 (global-set-key "\C-x2" (lambda ()

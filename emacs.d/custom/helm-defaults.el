@@ -3,7 +3,8 @@
 
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x t") 'helm-find-files)
+(global-set-key (kbd "C-x f") 'helm-find-files)
+(global-set-key (kbd "C-x t") 'helm-projectile)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-unset-key (kbd "C-x c"))
