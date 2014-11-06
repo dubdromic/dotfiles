@@ -95,3 +95,15 @@
     (isearch-repeat (if isearch-forward 'forward))
     (ad-enable-advice 'isearch-repeat 'after 'isearch-no-fail)
     (ad-activate 'isearch-repeat)))
+
+(defun kill-and-join-forward (&optional arg)
+  (interactive "P")
+  (if (and (eolp) (not (bolp)))
+      (progn (forward-char 1)
+             (just-one-space 0)
+             (backward-char 1)
+             (kill-line arg))
+    (kill-line arg)))
+
+(global-set-key "\C-k" 'kill-and-join-forward)
+(global-set-key (kbd "C-S-k") 'kill-whole-line)

@@ -27,9 +27,7 @@
 (load "helm-defaults.el")
 (load "org-mode-defaults.el")
 (load "tramp-defaults.el")
-(load "syntax-table.el")
 (load "smooth-scrolling-defaults.el")
-(load "erc-defaults.el")
 
 ;; robe-mode needs rbenv goodness
 (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "HOME") "/Bin:" (getenv "PATH")))
@@ -65,6 +63,7 @@
  '(rspec-key-command-prefix (kbd "M-s"))
  '(rspec-use-rake-when-possible nil)
  '(rspec-use-zeus-when-possible t)
+ '(ruby-align-chained-calls nil)
  '(ruby-deep-arglist nil)
  '(ruby-deep-indent-paren nil)
  '(safe-local-variable-values (quote ((buffer-file-coding-system . utf-8)))))
