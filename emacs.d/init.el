@@ -56,6 +56,7 @@
      ("macruby" . "macirb -r irb/completion")
      ("pry" . "bundle exec pry"))))
  '(magit-item-highlight-face (quote bold))
+ '(magit-use-overlays nil)
  '(nyan-animate-nyancat nil)
  '(nyan-mode t)
  '(nyan-wavy-trail t)
