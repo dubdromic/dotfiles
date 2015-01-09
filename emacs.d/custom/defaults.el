@@ -30,7 +30,6 @@
 (flx-ido-mode 1)
 
 (global-set-key (kbd "M-m") 'magit-status)
-(global-set-key (kbd "M-x") 'smex)
 
 (global-set-key (kbd "C-x n") 'next-buffer)
 (global-set-key (kbd "C-x p") 'previous-buffer)
@@ -40,7 +39,7 @@
 (global-set-key (kbd "M-h") 'windmove-left)
 (global-set-key (kbd "M-l") 'windmove-right)
 
-(global-set-key (kbd "M-r") 'revert-buffer)
+;; (global-set-key (kbd "M-r") nil)
 
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "M-f") 'forward-to-word)
