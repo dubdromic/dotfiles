@@ -64,7 +64,7 @@
  '(rspec-key-command-prefix (kbd "M-s"))
  '(rspec-use-rake-when-possible nil)
  '(rspec-use-zeus-when-possible t)
- '(ruby-align-chained-calls nil)
+ '(ruby-align-chained-calls t)
  '(ruby-deep-arglist nil)
  '(ruby-deep-indent-paren nil)
  '(safe-local-variable-values (quote ((buffer-file-coding-system . utf-8)))))

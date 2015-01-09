@@ -66,6 +66,8 @@
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
+(setq ruby-use-smie nil)
+
 ;; (add-hook 'enh-ruby-mode-hook
 ;;           '(lambda ()
 ;;              (setq enh-ruby-deep-indent-paren nil)))
