@@ -16,7 +16,6 @@
 (column-number-mode t)
 (delete-selection-mode 1)
 (global-hl-line-mode 1)
-(global-undo-tree-mode)
 
 (setq uniquify-buffer-name-style 'reverse)
 
@@ -29,6 +28,7 @@
 (ido-everywhere 1)
 (flx-ido-mode 1)
 
+(global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "M-m") 'magit-status)
 
 (global-set-key (kbd "C-x n") 'next-buffer)
