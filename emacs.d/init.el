@@ -75,5 +75,6 @@
 (custom-set-variables
  '(magit-use-overlays nil)
  '(magit-item-highlight-face (quote bold))
+ '(rspec-key-command-prefix (kbd "M-s"))
  '(ruby-deep-arglist nil)
  '(ruby-deep-indent-paren nil))
