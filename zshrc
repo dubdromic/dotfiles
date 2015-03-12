@@ -9,10 +9,9 @@ SAVEHIST=1000
 TERM=screen-256color
 XDG_CONFIG_HOME=$HOME/.config
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+VM_DB_IP=$(VBoxManage guestproperty enumerate Windows7 | grep "Net/0/V4/IP" | awk '{ print substr($4,1,14); }')
 
-DB_IP=$(VBoxManage guestproperty enumerate Windows7 | grep "Net/0/V4/IP" | awk '{ print substr($4,1,14); }')
-
-export DB_IP
+export VM_DB_IP
 export EDITOR
 export TERM
 export GIT_SSL_NO_VERIFY
