@@ -10,4 +10,3 @@ alias rspec='bundle exec rspec'
 alias gl='tig'
 alias be='bundle exec'
 alias ssh="TERM=xterm ssh"
-alias killrails="kill -9 `ps aux | grep "rails s" | head -1 | awk '{ print $2; }'`"
