@@ -33,6 +33,7 @@
 ;; File navigation
 (ido-mode t)
 (setq ido-enable-flex-matching t)
+(setq ag-reuse-buffers 't)
 (setq uniquify-buffer-name-style 'forward)
 (projectile-global-mode 1)
 (setq projectile-enable-caching 1)
@@ -55,9 +56,19 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
-
-;; (global-set-key (kbd "M-f") 'forward-word)
 (global-set-key (kbd "C-x o") 'switch-window)
+
+;; Set exec path for rspec-mode
+(setenv "PATH"
+        (concat
+         (getenv "HOME") "/.rbenv/shims:"
+         (getenv "HOME") "/.rbenv/bin:"
+         (getenv "HOME") "/Bin:"
+         (getenv "PATH")))
+(setq exec-path
+      (cons (concat
+             (getenv "HOME") "/.rbenv/shims")
+            (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
 ;; Various other minor defaults
 (delete-selection-mode 1)
