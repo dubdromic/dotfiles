@@ -84,6 +84,7 @@
                                                "backups"))))
 
 (custom-set-variables
+ '(css-indent-offset 2)
  '(magit-use-overlays nil)
  '(magit-item-highlight-face (quote bold))
  '(rspec-key-command-prefix (kbd "M-s"))
