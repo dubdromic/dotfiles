@@ -5,7 +5,7 @@ require 'rake'
 desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
-  files = Dir['*'] - %w[Rakefile Brewfile]
+  files = Dir['*'] - %w[Rakefile Brewfile bootstrap_ruby bootstrap_ubuntu]
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
