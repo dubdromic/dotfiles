@@ -9,7 +9,11 @@ SAVEHIST=1000
 TERM=screen-256color
 XDG_CONFIG_HOME=$HOME/.config
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-VM_DB_IP=$(VBoxManage guestproperty enumerate Windows7 | grep "Net/0/V4/IP" | awk '{ print substr($4,1,14); }')
+
+if hash VBoxManage 2>/dev/null; then
+  VM_NAME=$(VBoxManage list vms | cut -d '"' -f2)
+  VM_DB_IP=$(VBoxManage guestproperty enumerate $VM_NAME | grep "Net/0/V4/IP" | awk '{ print substr($4,1,14); }')
+fi
 
 export VM_DB_IP
 export EDITOR
