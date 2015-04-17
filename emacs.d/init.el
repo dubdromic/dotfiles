@@ -8,6 +8,7 @@
 ;; Stuff we need
 (require 'uniquify)
 (require 'tomorrow-night-theme)
+(require 'web-mode)
 
 ;; Startup
 (defun startup-echo-area-message () "Ready")
@@ -29,6 +30,13 @@
 (setq default-tab-width 2)
 (show-paren-mode 1)
 (setq scroll-step 1)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+
+;; Custom modes
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 ;; File navigation
 (ido-mode t)
