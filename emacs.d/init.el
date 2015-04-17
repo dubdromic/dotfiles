@@ -9,6 +9,7 @@
 (require 'uniquify)
 (require 'tomorrow-night-theme)
 (require 'web-mode)
+(require 'powerline)
 
 ;; Startup
 (defun startup-echo-area-message () "Ready")
@@ -23,6 +24,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
+(powerline-default-theme)
 
 ;; Indentation/parsing
 (setq ruby-use-smie nil)
