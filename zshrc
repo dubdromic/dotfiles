@@ -6,18 +6,10 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 PATH=$HOME/.rbenv/bin:$HOME/Bin/:$HOME/Code/RT/rt/bin:$HOME/.cask/bin:$PATH
 SAVEHIST=1000
-TERM=screen-256color
 XDG_CONFIG_HOME=$HOME/.config
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-if hash VBoxManage 2>/dev/null; then
-  VM_NAME=$(VBoxManage list vms | cut -d '"' -f2)
-  VM_DB_IP=$(VBoxManage guestproperty enumerate $VM_NAME | grep "Net/0/V4/IP" | awk '{ print substr($4,1,14); }')
-fi
-
-export VM_DB_IP
 export EDITOR
-export TERM
 export GIT_SSL_NO_VERIFY
 
 setopt appendhistory
@@ -35,6 +27,9 @@ promptinit
 prompt redhat
 
 case $TERM in
+  *dumb*)
+    PS1="$ "
+  ;;
   *screen*)
     precmd () {print -Pn "\e]0;%n@%M: %~\a"}
   ;;
