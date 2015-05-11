@@ -9,15 +9,15 @@ echo "Performing system upgrade"
 apt-get -qq upgrade
 
 echo "Installing GUI tools"
-apt-get -qq install unity-tweak-tool gnome-tweak-tool ttf-mscorefonts-installer numix-gtk-theme numix-icon-theme-circle
+apt-get -qq install unity-tweak-tool gnome-tweak-tool ttf-mscorefonts-installer numix-gtk-theme
 apt-get -qq install ike-qtgui emacs mg chromium-browser virtualbox transmission-gtk
 
 echo "Installing command line tools"
-apt-get -qq install curl git ruby rake htop autojump nginx silversearcher-ag nodejs tig
+apt-get -qq install curl git ruby rake htop autojump nginx silversearcher-ag nodejs tig zsh redis-server
 
 echo "Installing development libraries"
 apt-get -qq install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
-apt-get -qq install libssl-dev libreadline-dev freetds-dev libmariadbd-dev
+apt-get -qq install libssl-dev libreadline-dev freetds-dev libmariadbd-dev libmysqlclient-dev
 
 bash $DIR/Dotfiles/bootstrap_ruby
 
