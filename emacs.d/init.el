@@ -7,12 +7,12 @@
 
 ;; Stuff we need
 (require 'uniquify)
-(require 'tomorrow-night-theme)
 (require 'web-mode)
-(require 'powerline)
 
 ;; Startup
 (defun startup-echo-area-message () "Ready")
+(setq magit-last-seen-setup-instructions "1.4.0")
+(load-theme 'solarized-light t)
 
 ;; Auto-backup
 (defvar backup-dir (expand-file-name "~/.tmp/"))
@@ -23,8 +23,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(column-number-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
-(powerline-default-theme)
 
 ;; Indentation/parsing
 (setq ruby-use-smie nil)
@@ -39,6 +39,7 @@
 ;; Custom modes
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 
 ;; File navigation
 (ido-mode t)
@@ -51,6 +52,11 @@
 (setq projectile-completion-system 'ido)
 (setq helm-buffers-fuzzy-matching t
       helm-split-window-in-side-p t)
+(setq tramp-default-method "rsync")
+(add-hook 'find-file-hook
+          (lambda ()
+            (when (file-remote-p default-directory)
+              (setq-local projectile-mode-line " Projectile"))))
 
 ;; Key bindings
 (define-key global-map (kbd "RET") 'newline-and-indent)
