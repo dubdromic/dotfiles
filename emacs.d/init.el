@@ -13,6 +13,7 @@
 (defun startup-echo-area-message () "Ready")
 (setq magit-last-seen-setup-instructions "1.4.0")
 (load-theme 'solarized-light t)
+(setq-default gc-cons-threshold 10000000)
 
 ;; Auto-backup
 (defvar backup-dir (expand-file-name "~/.tmp/"))
@@ -65,6 +66,7 @@
 (global-set-key (kbd "C-x t") 'helm-projectile)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "M-m") 'magit-status)
+(global-subword-mode 1)
 (autoload 'zap-up-to-char "misc"
   "Kill up to, but not including ARGth occurrence of CHAR." t)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
@@ -74,7 +76,6 @@
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 (global-set-key (kbd "C-x o") 'switch-window)
 
-;; Set exec path for rspec-mode
 (setenv "PATH"
         (concat
          (getenv "HOME") "/.rbenv/shims:"
@@ -103,6 +104,5 @@
  '(css-indent-offset 2)
  '(magit-use-overlays nil)
  '(magit-item-highlight-face (quote bold))
- '(rspec-key-command-prefix (kbd "M-s"))
  '(ruby-deep-arglist nil)
  '(ruby-deep-indent-paren nil))
