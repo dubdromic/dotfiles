@@ -3,7 +3,6 @@
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
-(add-to-list 'load-path "~/.emacs.d/theme")
 
 ;; Stuff we need
 (require 'uniquify)
