@@ -16,11 +16,8 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 (load-theme 'solarized-light t)
 (setq-default gc-cons-threshold 10000000)
-
-;; Auto-backup
-(defvar backup-dir (expand-file-name "~/.tmp/"))
-(defvar autosave-dir (expand-file-name "~/.tmp/"))
 (setq backup-inhibited t)
+(setq auto-save-default nil)
 
 ;; Recent files
 (setq recentf-auto-cleanup 'never)
@@ -63,11 +60,6 @@
 (setq projectile-completion-system 'ido)
 (setq helm-buffers-fuzzy-matching t
       helm-split-window-in-side-p t)
-(setq tramp-default-method "rsync")
-(add-hook 'find-file-hook
-          (lambda ()
-            (when (file-remote-p default-directory)
-              (setq-local projectile-mode-line " Projectile"))))
 
 ;; Key bindings
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -90,7 +82,16 @@
              (getenv "HOME") "/.rbenv/shims")
             (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
-(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+;; TRAMP/remote booster seat
+(add-hook 'find-file-hook
+          (lambda ()
+            (when (file-remote-p default-directory)
+              (setq-local projectile-mode-line " Projectile"))))
+(setq vc-ignore-dir-regexp
+      (format "\\(%s\\)\\|\\(%s\\)"
+              vc-ignore-dir-regexp
+              tramp-file-name-regexp))
+(setq tramp-default-method "rsync")
 
 ;; Various other minor defaults
 (delete-selection-mode 1)
