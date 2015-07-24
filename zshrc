@@ -20,11 +20,14 @@ setopt AUTO_MENU
 
 bindkey -e
 
+autoload -U zmv
 autoload -Uz compinit promptinit
-compinit
-promptinit
 
-prompt redhat
+# Removes (potentially slow) git completions
+compdef -d git
+
+promptinit
+prompt off
 
 case $TERM in
   *dumb*)
