@@ -14,7 +14,7 @@
 ;; Startup
 (defun startup-echo-area-message () "Ready")
 (setq magit-last-seen-setup-instructions "1.4.0")
-(load-theme 'solarized-light t)
+(load-theme 'solarized-dark t)
 (setq-default gc-cons-threshold 10000000)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
@@ -49,6 +49,17 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 
+;; URG mode
+(setq org-default-notes-file (concat (getenv "HOME") "/notes.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/Org/todo.org" "Unfiled")
+         "* TODO %?\n  %i\n  %a")
+        ("n" "Note" entry (file+headline "~/Org/notes.org" "Notes")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
 ;; File navigation
 (ido-mode t)
 (setq ido-enable-flex-matching t)
@@ -64,8 +75,10 @@
 ;; Key bindings
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x t") 'helm-projectile)
+(global-set-key (kbd "C-x v") 'helm-projectile)
+(global-set-key (kbd "C-x t") 'helm-projectile-find-file)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "M-m") 'magit-status)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
@@ -83,6 +96,7 @@
             (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
 ;; TRAMP/remote booster seat
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
 (add-hook 'find-file-hook
           (lambda ()
             (when (file-remote-p default-directory)
