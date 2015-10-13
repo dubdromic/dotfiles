@@ -1,30 +1,23 @@
 ;; Much of this was ripped from better-defaults.el
 ;; http://github.com/technomancy/better-defaults
 
-(require 'cask "~/.cask/cask.el")
+(require 'cask "/usr/share/cask/cask.el")
 (cask-initialize)
 
 ;; Stuff we need
 (require 'uniquify)
 (require 'web-mode)
 (require 'tramp)
-(require 'recentf)
+(require 'flx-ido)
+(require 'helm-projectile)
 (autoload 'zap-up-to-char "misc" t)
 
-;; Startup
+;; Environmental setup
 (defun startup-echo-area-message () "Ready")
-(setq magit-last-seen-setup-instructions "1.4.0")
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 (setq-default gc-cons-threshold 10000000)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
-
-;; Recent files
-(setq recentf-auto-cleanup 'never)
-;; (setq recentf-max-saved-items 0)
-(recentf-mode 1)
-
-;; Sane interface defaults
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -32,8 +25,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-font-lock-mode 1)
 (global-subword-mode 1)
-
-;; Indentation/parsing
 (setq ruby-use-smie nil)
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 2)
@@ -49,26 +40,17 @@
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 
-;; URG mode
-(setq org-default-notes-file (concat (getenv "HOME") "/notes.org"))
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Org/todo.org" "Unfiled")
-         "* TODO %?\n  %i\n  %a")
-        ("n" "Note" entry (file+headline "~/Org/notes.org" "Notes")
-         "* %?\nEntered on %U\n  %i\n  %a")))
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
-
 ;; File navigation
+(projectile-global-mode 1)
 (ido-mode t)
+(flx-ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq ag-reuse-buffers 't)
 (setq uniquify-buffer-name-style 'forward)
 (projectile-global-mode 1)
 (setq projectile-enable-caching 1)
 (setq projectile-indexing-method 'git)
-(setq projectile-completion-system 'ido)
+(setq projectile-completion-system 'ido-flx)
 (setq helm-buffers-fuzzy-matching t
       helm-split-window-in-side-p t)
 
@@ -78,22 +60,10 @@
 (global-set-key (kbd "C-x v") 'helm-projectile)
 (global-set-key (kbd "C-x t") 'helm-projectile-find-file)
 (global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "M-m") 'magit-status)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-x o") 'switch-window)
-
-(setenv "PATH"
-        (concat
-         (getenv "HOME") "/.rbenv/shims:"
-         (getenv "HOME") "/.rbenv/bin:"
-         (getenv "HOME") "/Bin:"
-         (getenv "PATH")))
-(setq exec-path
-      (cons (concat
-             (getenv "HOME") "/.rbenv/shims")
-            (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
 ;; TRAMP/remote booster seat
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
@@ -116,15 +86,10 @@
       apropos-do-all t
       mouse-yank-at-point t
       ediff-window-setup-function 'ediff-setup-windows-plain
-      save-place-file (concat user-emacs-directory "places")
       backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
 
 (custom-set-variables
  '(css-indent-offset 2)
- '(magit-use-overlays nil)
- '(magit-item-highlight-face (quote bold))
- '(rspec-key-command-prefix (kbd "M-s"))
- '(rspec-use-opts-file-when-available nil)
  '(ruby-deep-arglist nil)
  '(ruby-deep-indent-paren nil))
