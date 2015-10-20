@@ -8,6 +8,7 @@ PATH=$HOME/.rbenv/bin:$HOME/Bin/:$HOME/Code/RT/rt/bin:$HOME/.cask/bin:$PATH
 SAVEHIST=1000
 XDG_CONFIG_HOME=$HOME/.config
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+WORDCHARS='*?_-[]~&;!#$%^(){}<>'
 
 export EDITOR
 export GIT_SSL_NO_VERIFY
