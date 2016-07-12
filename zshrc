@@ -1,48 +1,22 @@
-zstyle :compinstall filename '/home/corin/.zshrc'
-
-EDITOR=mg
-GIT_SSL_NO_VERIFY=1
-HISTFILE=~/.histfile
+# Zsh setup
+HISTFILE=$HOME/.histfile
 HISTSIZE=1000
-PATH=$HOME/.rbenv/bin:$HOME/Bin/:$HOME/Code/RT/rt/bin:$HOME/.cask/bin:$PATH
-SAVEHIST=1000
-XDG_CONFIG_HOME=$HOME/.config
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-WORDCHARS='*?_-[]~&;!#$%^(){}<>'
+SAVEHIST=10000
+setopt appendhistory extendedhistory
+setopt extendedglob nomatch automenu
+setopt correct
+autoload -Uz colors && colors
 
-export EDITOR
-export GIT_SSL_NO_VERIFY
+# Shiny
+PROMPT="%~ %F{green}➜ %f "
 
-setopt appendhistory
-setopt nomatch
-setopt NO_BEEP
-setopt AUTO_LIST
-setopt AUTO_MENU
+# Useful ENVs
+export EDITOR=vim
+export PATH=$HOME/Bin:$HOME/.rbenv/bin:$HOME/.cabal/bin:$PATH
+export GOPATH=$HOME/Code/Go
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
-bindkey -e
-
-autoload -U zmv
-autoload -Uz compinit promptinit
-
-# Removes (potentially slow) git completions
-compdef -d git
-
-promptinit
-prompt off
-
-case $TERM in
-  *dumb*)
-    PS1="$ "
-  ;;
-  *screen*)
-    precmd () {print -Pn "\e]0;%n@%M: %~\a"}
-  ;;
-esac
-
-[[ -s /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
+# The rest
 [[ -s /etc/profile.d/autojump.zsh ]] && . /etc/profile.d/autojump.zsh
-[[ -s /etc/profile.d/infinality-settings.sh ]] && . /etc/profile.d/infinality-settings.sh
-
 eval "$(rbenv init -)"
-
 source $HOME/.aliases
