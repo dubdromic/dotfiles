@@ -7,7 +7,7 @@ alias gdc='git diff --cached'
 alias gs='git status'
 alias gba='git branch -a'
 alias rspec='bundle exec rspec'
-alias gl='git log --graph'
+alias gl='git log -p'
 alias be='bundle exec'
 alias ssh="TERM=xterm ssh"
 alias zr="zeus rspec"
