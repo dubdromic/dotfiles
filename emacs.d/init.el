@@ -50,9 +50,10 @@
 (projectile-global-mode 1)
 (setq projectile-enable-caching 1)
 (setq projectile-indexing-method 'git)
-(setq projectile-completion-system 'ido-flx)
+(setq projectile-completion-system 'ido)
 (setq helm-buffers-fuzzy-matching t
-      helm-split-window-in-side-p t)
+      helm-split-window-in-side-p t
+      helm-buffer-skip-remote-checking t)
 
 ;; Key bindings
 (define-key global-map (kbd "RET") 'newline-and-indent)
