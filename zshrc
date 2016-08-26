@@ -20,5 +20,5 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.aatext=true -Ds
 
 # The rest
 [[ -s /etc/profile.d/autojump.zsh ]] && . /etc/profile.d/autojump.zsh
-eval "$(rbenv init -)"
+[[ -s $HOME/.rbenv/bin/rbenv ]] && eval "$(rbenv init -)"
 source $HOME/.aliases
