@@ -9,8 +9,6 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt*clipboard.copycmd:  xclip -i -selection clipboard
 URxvt*clipboard.pastecmd: xclip -o -selection clipboard
-Urxvt.keysym.C-C: perl:clipboard:copy
-Urxvt.keysym.C-V: perl:clipboard:paste
 URxvt*scrollTtyOutput: false
 URxvt*scrollTtyKeypress: true
 URxvt*font: xft:Ubuntu Mono:size=12

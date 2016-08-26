@@ -5,7 +5,7 @@ require 'rake'
 desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
-  files = Dir['*'] - %w[Rakefile Brewfile bootstrap_ruby bootstrap_ubuntu]
+  files = Dir['*'] - %w[Rakefile config]
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
@@ -31,6 +31,7 @@ task :install do
       link_file(file)
     end
   end
+  system %Q{cp -r "$PWD/config/gtk-3.0" "$HOME/.config"}
 end
 
 def replace_file(file)

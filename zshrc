@@ -6,9 +6,11 @@ setopt appendhistory extendedhistory
 setopt extendedglob nomatch automenu
 setopt correct
 autoload -Uz colors && colors
+bindkey -e
 
 # Shiny
-PROMPT="%~ %F{green}➜ %f "
+TERM=xterm-256color
+PROMPT="%~ %F{green}-> %f "
 
 # Useful ENVs
 export EDITOR=vim
