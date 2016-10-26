@@ -1,0 +1,25 @@
+escape M-t
+alias status exec /home/corin/Bin/status
+definekey top M-j next
+definekey top M-k prev
+definekey top M-Tab other
+definekey top M-space exec /home/corin/Bin/selectwindow
+definekey top M-s status
+definekey top M-l exec /home/corin/Bin/lock
+definekey top XF86AudioLowerVolume exec pulseaudio-ctl down; status
+definekey top XF86AudioRaiseVolume exec pulseaudio-ctl up; status
+definekey top XF86AudioMute exec pulseaudio-ctl mute
+definekey top XF86AudioPlay exec playerctl play-pause
+definekey top XF86AudioNext exec playerctl next
+definekey top XF86AudioPrev exec playerctl previous
+unbind c
+unbind q
+bind q quit
+bind t exec urxvt
+bind c exec chromium
+exec urxvt
+exec chromium
+exec spotify
+set winname title
+set winfmt %n %s %t
+set inputwidth 400
