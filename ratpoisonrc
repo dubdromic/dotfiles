@@ -6,12 +6,14 @@ definekey top M-Tab other
 definekey top M-space exec /home/corin/Bin/selectwindow
 definekey top M-s status
 definekey top M-l exec /home/corin/Bin/lock
-definekey top XF86AudioLowerVolume exec pulseaudio-ctl down; status
-definekey top XF86AudioRaiseVolume exec pulseaudio-ctl up; status
+definekey top XF86AudioLowerVolume exec pulseaudio-ctl down 3; /home/corin/Bin/status
+definekey top XF86AudioRaiseVolume exec pulseaudio-ctl up 3; /home/corin/Bin/status
 definekey top XF86AudioMute exec pulseaudio-ctl mute
 definekey top XF86AudioPlay exec playerctl play-pause
 definekey top XF86AudioNext exec playerctl next
 definekey top XF86AudioPrev exec playerctl previous
+definekey top XF86MonBrightnessUp exec lux -a 10%
+definekey top XF86MonBrightnessDown exec lux -s 10%
 unbind c
 unbind q
 bind q quit

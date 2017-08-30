@@ -3,6 +3,7 @@
         email = corin@dubdromic.com
 [core]
         editor = vim
+        excludesfile = /home/corin/.gitignore
 [color]
         diff = auto
         status = auto

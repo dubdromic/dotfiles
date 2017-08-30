@@ -2,11 +2,14 @@
 HISTFILE=$HOME/.histfile
 HISTSIZE=1000
 SAVEHIST=10000
-setopt appendhistory extendedhistory
+setopt appendhistory extendedhistory share_history
 setopt extendedglob nomatch automenu
 setopt correct
 autoload -Uz colors && colors
 bindkey -e
+autoload -Uz compinit promptinit
+compinit
+promptinit
 
 # Shiny
 TERM=xterm-256color
