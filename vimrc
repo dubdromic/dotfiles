@@ -29,15 +29,23 @@ set backupdir=~/.tmp/
 set directory=~/.tmp/
 set backup
 set noeb vb t_vb=
-
-" let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-let g:ctrlp_user_command = 'ag %s -l --ignore .git --ignore .stack-work --ignore coverage --hidden --nocolor -g ""'
-let g:ctrlp_match_window = 'max:20'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 0
+set laststatus=2
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set path=**
+set wildchar=<Tab> wildmenu wildmode=full
 
 let mapleader=","
 
-map <leader>t :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
-map <leader>d :Sbd<cr>
+map <leader>n :e ~/notes<cr>
+map <leader>t :Files<cr>
+map <leader>g :GFiles?<cr>
+map <leader>b :Buffers<cr>
+map <leader>f :exec 'Ag' expand('<cword>')<cr>
+map <leader>d :bd<cr>
+map <leader>m :make<cr>
+
+autocmd BufNewFile,BufRead notes set filetype=todo
+autocmd BufNewFile,BufRead * set foldmethod=manual
+autocmd BufNewFile,BufRead notes set foldmethod=syntax
+autocmd Filetype todo nnoremap ,<tab> :.s/TODO/DONE/g<cr>
+autocmd Filetype todo nnoremap <tab> za
