@@ -11,8 +11,8 @@ URxvt*clipboard.copycmd:  xclip -i -selection clipboard
 URxvt*clipboard.pastecmd: xclip -o -selection clipboard
 URxvt*scrollTtyOutput: false
 URxvt*scrollTtyKeypress: true
-URxvt*font: pango:Ubuntu Mono:size=16,pango:Monospace:size=16
-URxvt*boldFont: pango:Ubuntu Mono:bold:size=16
+URxvt*font: xft:Ubuntu Mono:size=16,xft:Monospace:size=16
+URxvt*boldFont: xft:Ubuntu Mono:bold:size=16
 URxvt*letterSpace: -1
 URxvt*scrollBar: false
 URxvt*scrollWithBuffer: true
