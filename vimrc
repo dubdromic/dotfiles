@@ -1,12 +1,14 @@
 execute pathogen#infect()
-
 set nocompatible
 
 syntax on
+colorscheme solarized
 filetype on
 filetype plugin indent on
-colorscheme solarized
 
+set t_ut= " Work around tmux messing with background colors
+set background=light
+set t_Co=256
 set autoindent
 set relativenumber
 set hidden
@@ -17,10 +19,7 @@ set expandtab
 set ts=2
 set sw=2
 set sts=2
-set t_Co=256
-set background=light
 set re=1
-set t_ut= " Work around tmux messing with background colors
 set undodir=~/.tmp/
 set undofile
 set undolevels=1000
@@ -35,6 +34,7 @@ set path=**
 set wildchar=<Tab> wildmenu wildmode=full
 
 let mapleader=","
+let FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 
 map <leader>n :e ~/notes<cr>
 map <leader>t :Files<cr>
